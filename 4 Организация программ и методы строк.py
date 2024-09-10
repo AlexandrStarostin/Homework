@@ -1,5 +1,3 @@
-
-
 my_string = input('какой год? ')
 print(my_string.count("")-1)
 my_string = input('какой год? '.upper())
