@@ -12,10 +12,6 @@ t = 2*(2+2)
 print(x==t)
 
 #"4st program"
-y = float("123.456")
-k = (y*10)
-l = (str(k)[3])
-print(int(l))
-#второй вариант решения
-t = '123.456'[4]
-print(int(t))
+m = float('123.456')*10
+l = int(m)
+print(l % 10)
