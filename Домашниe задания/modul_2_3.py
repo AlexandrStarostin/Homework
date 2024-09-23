@@ -11,32 +11,3 @@ while i < len(my_list):
 
     print(my_list[i])
     i += 1
-
-
-
-
-
-
-
-
-
-
-
-
-#     else:
-#         print('u')
-# #     my = my_list
-# #     == 0 == True
-# # print(my)
-# # break
-#
-
-# Kol = len(my_list)
-# my_list1 = my_list[:]
-# g = my_list1 * Kol
-# if my_list1 > 0:
-#     print(my_list)
-#
-# print(g)
-# #
-# # a = Kol * g
