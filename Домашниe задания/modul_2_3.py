@@ -11,3 +11,12 @@ while i < len(my_list):
 
     print(my_list[i])
     i += 1
+
+print(*[])
+
+for i in my_list:
+    if i < 0:
+        break
+    if i == 0:
+        continue
+    print(i)
