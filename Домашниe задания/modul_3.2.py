@@ -19,21 +19,21 @@ def send_email(message, recipient, sender="university.help@gmail.com"):
                         elif sender != recipient:
 
                             if com1 == 'moc.' or net1 == 'ten.' or ru1 == 'ur.':
-                                print('Письмо успешно отправлено с адреса <sender> на адрес <recipient>')
+                                print(f'Письмо успешно отправлено с адреса {sender}  на адрес {recipient}')
                                 break
                             else:
-                                print('Невозможно отправить письмо с адреса <sender> на адрес <recipient>')
+                                print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient} без расширения <.com>, <ru>, <net> в <recipient>')
                                 break
                     if net == 'ten.':
                         if sender is recipient:
-                            print('Нельзя отправить письмо самому себе!3')
+                            print('Нельзя отправить письмо самому себе!')
                             break
                         elif sender != recipient:
                             if com1 == 'moc.' or net1 == 'ten.' or ru1 == 'ur.':
-                                print('Письмо успешно отправлено с адреса <sender> на адрес <recipient>')
+                                print(f'Письмо успешно отправлено с адреса {sender}  на адрес {recipient}')
                                 break
                             else:
-                                print('Невозможно отправить письмо с адреса <sender> на адрес <recipient>')
+                                print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient} без расширения <.com>, <ru>, <net> в <recipient>')
                                 break
 
                     if com == 'moc.':
@@ -42,22 +42,22 @@ def send_email(message, recipient, sender="university.help@gmail.com"):
                             break
                         elif sender != recipient:
                             if com1 == 'moc.' or ru1 == 'ur.' or net1 == 'ten.':
-                                print('Письмо успешно отправлено с адреса <sender> на адрес <recipient>')
+                                print(f'Письмо успешно отправлено с адреса {sender} на адрес {recipient}')
                                 break
                             else:
-                                print('Невозможно отправить письмо с адреса <sender> на адрес <recipient>')
+                                print(f"Невозможно отправить письмо с адреса {sender} на адрес {recipient} без расширения <.com>, <ru>, <net> в <recipient>")
                                 break
                     else:
-                        print('Невозможно отправить письмо с адреса <sender> на адрес <recipient>')
+                        print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient} без расширения <.com>, <.ru>, <.net> в <sender>')
                         break
                 else:
-                    print('Невозможно отправить письмо с адреса <sender> на адрес <recipient>')
+                    print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient} без <@> в <recipient>')
                     break
             break
         else:
-            print('Невозможно отправить письмо с адреса <sender> на адрес <recipient>')
+            print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient} без <@> в <sender>')
             break
 
 
-send_email('vbn', "university.help@gmail.net", "university.helpg@mail.ru" )
+send_email('vbn', "university.helpg@mail.net", "university.helpg@mail.ru" )
 
