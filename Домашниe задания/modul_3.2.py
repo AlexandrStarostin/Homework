@@ -33,5 +33,5 @@ def send_email( message, recipient,*, sender = "university.help@gmail.com"):
             break
         break
 
-send_email('vbn', "university.helpg@mil.nt", sender= "university.help@gmail.ru")
+send_email('vbn', "university.helpg@mil.net")
 
