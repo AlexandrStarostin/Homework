@@ -1,4 +1,4 @@
-def send_email( message, recipient, sender = "university.help@gmail.com"):
+def send_email( message, recipient,*, sender = "university.help@gmail.com"):
     for _ in sender:
         if '@' in sender:
             for j in recipient:
@@ -12,7 +12,7 @@ def send_email( message, recipient, sender = "university.help@gmail.com"):
                                     print(f'Письмо успешно отправлено с адреса {sender} на адрес {recipient}')
                                     break
                                 else:
-                                    print(f'Нестандартный отправитель Письмо успешно отправлено с адреса {sender} на адрес {recipient}')
+                                    print(f'НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо успешно отправлено с адреса {sender} на адрес {recipient}')
                                     break
 
 
@@ -33,5 +33,5 @@ def send_email( message, recipient, sender = "university.help@gmail.com"):
             break
         break
 
-send_email('vbn', "university.helpg@mil.net", "university.helpg@mail.net")
+send_email('vbn', "university.helpg@mil.nt", sender= "university.help@gmail.ru")
 
