@@ -1,8 +1,8 @@
+from math import inf
 def devide(first, second):
-    from math import inf
     if second == 0:
-        print(first)
-        print(inf)
-        return
-    print(first/second)
-devide(4, 0)
+        return inf
+    else:
+        return first/second
+
+
