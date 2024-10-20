@@ -4,20 +4,22 @@ class House:
         self.number_of_floors = number_of_floors
 
     def go_to (self):
-        self.floor = int(input())
+        self.floor = new_floor
         if self.floor < 1 or self.floor > self.number_of_floors:
             print('Такого этажа не существует')
         if self.floor > 0 and self.floor <= self.number_of_floors:
             print(self.floor)
 
-заг = House('"ЖК Загородный"', 22)
-элит = House('"ЖК Элитный"', 99)
+p1 = House('"ЖК Загородный"', 22)
+p2 = House('"ЖК Элитный"', 99)
 
-print(заг.name, заг.number_of_floors)
-print(элит.name, элит.number_of_floors)
+new_floor = 23
 
-заг.go_to()
-элит.go_to()
+print(p1.name, p1.number_of_floors)
+print(p2.name, p2.number_of_floors)
+
+p1.go_to()
+p2.go_to()
 
 
 

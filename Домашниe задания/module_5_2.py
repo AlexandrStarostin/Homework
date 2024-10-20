@@ -9,10 +9,10 @@ class House:
     def __str__(self):
         print(F'Название: {self.name}, кол-во этажей: {self.number_of_floors}')
 
-заг = House('"ЖК Загородный"', 22)
-элит = House('"ЖК Элитный"', 99)
+p1 = House('"ЖК Загородный"', 22)
+p2 = House('"ЖК Элитный"', 99)
 
-заг.__str__()
-элит.__str__()
-заг.__len__()
-элит.__len__()
+p1.__str__()
+p2.__str__()
+p1.__len__()
+p2.__len__()
