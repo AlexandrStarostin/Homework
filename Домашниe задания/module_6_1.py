@@ -3,16 +3,18 @@ class Animal:
         self.name = name
         self.alive = True
         self.fed = False
+        return
 
 class Plant:
     def __init__(self, name):
         self.edible = False
         self.name = name
+        return
 
 class Mammal(Animal):
     def eat(self, food):
         self.food = food
-
+        fl2.name = self.food
         if isinstance(Plant.__init__(self.name) == Mammal.eat(self.food)):
             print(f'{Animal(self.name)} съел {Mammal.eat(self.food)}')
             self.fed = True
