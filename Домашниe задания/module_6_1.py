@@ -52,7 +52,6 @@ fl2 = Plant(name='одуванчик')
 
 mn = Mammal
 
-
 print(n2.name)
 print(fl2.name)
 
@@ -65,6 +64,4 @@ print(mn.eat("одуванчик", "одуванчик"))
 
 print(n1.alive)
 print(n2.fed)
-
-
 
