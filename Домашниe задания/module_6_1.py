@@ -59,7 +59,7 @@ print(Flower.__mro__)
 print(Mammal.__mro__)
 
 print(n2.name)
-print(mn.eat("одуванчик", "одуванчик"))
+print(mn.eat(Plant(fl2.name), "одуванчик"))
 
 
 print(n1.alive)
