@@ -1,27 +1,26 @@
 class Animal:
+
     def __init__(self, name):
         self.name = name
         self.alive = True
         self.fed = False
-        return
+
 
 class Plant:
     def __init__(self, name):
         self.edible = False
         self.name = name
-        return
 
 class Mammal(Animal):
     def eat(self, food):
-        self.food = food
-        fl2.name = self.food
-        if isinstance(Plant.__init__(self.name) == Mammal.eat(self.food)):
-            print(f'{Animal(self.name)} съел {Mammal.eat(self.food)}')
-            self.fed = True
+        if isinstance(food, Plant):
+            if Plant.fl2.name == food.name:
+                self.fed = True
+            return f'{n2.name} съел {fl2.name}'
+
         else:
-            print(f'{Animal(self.name)} не стал есть {Mammal.eat(self.food)}')
             self.alive = False
-        return
+            return f'{n2.name} не стала есть {mt1.name}'
 
 
 
@@ -40,7 +39,6 @@ class Flower(Plant):
     def fl(self, edible = True):
         self.edible = edible
 
-
 class Meat(Plant):
     def fr(self, edible = True):
         self.edible = edible
@@ -52,18 +50,21 @@ n2 = Animal(name='черепаха')
 mt1 = Plant (name='овца')
 fl2 = Plant(name='одуванчик')
 
+mn = Mammal
 
 
-print(n1.name)
+print(n2.name)
 print(fl2.name)
 
 print(Flower.__mro__)
 print(Mammal.__mro__)
-print(Mammal.eat(n1.name,"овца"))
+
+print(n2.name)
+print(mn.eat("одуванчик", "одуванчик"))
 
 
 print(n1.alive)
 print(n2.fed)
 
-print(Meat.fr)
+
 
