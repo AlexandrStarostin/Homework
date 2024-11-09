@@ -81,7 +81,7 @@ class UrTube:
                     return
 
                 for i in  range(v.duration):
-                    print(i+1, end=" ")
+                    print(i+1, end=" ")     # (end=" ") - горизонтальный показ отсчета.
                     time.sleep(1)
                 print("Конец видео")
                 return
