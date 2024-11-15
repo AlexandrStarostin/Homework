@@ -36,7 +36,7 @@ class Shop:
 
 
 
-p1 = Product('Potato', 50.5, 'Vegetables')
+p1 = Product('Potato', 50.4, 'Vegetables')
 p2 = Product('Spaghetti', 3.4, 'Groceries')
 p3 = Product('Potato', 5.5, 'Vegetables')
 

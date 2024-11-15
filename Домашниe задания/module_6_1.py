@@ -12,7 +12,6 @@ class Plant:
         self.food = food
 
 
-
 class Mammal(Animal):
     def __init__(self, name):
         super().__init__(name)

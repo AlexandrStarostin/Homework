@@ -83,7 +83,7 @@ print(db.beak)
 db.speak()
 db.attack()
 #
-db.move(1, 2, 1)
+db.move(2, 4, 3)
 db.get_cords()
 
 db.lay_eggs()
