@@ -1,67 +1,77 @@
 class Animal:
-
-    def __init__(self, name):
+    def __init__(self, name, alive = True, fed = False):
         self.name = name
-        self.alive = True
-        self.fed = False
+        self.alive = alive     # живой
+        self.fed = fed      # накормленый
+        a = self.alive
 
 
 class Plant:
-    def __init__(self, name):
-        self.edible = False
-        self.name = name
+    def __init__(self, food):
+        self.edible = False   # съедобный
+        self.food = food
+
+
 
 class Mammal(Animal):
+    def __init__(self, name):
+        super().__init__(name)
     def eat(self, food):
         if isinstance(food, Plant):
-            if Plant.fl2.name == food.name:
-                self.fed = True
-            return f'{n2.name} съел {fl2.name}'
+            if food == fl2:
+                f = self.fed = True
+                return (f'{n2.name} съел {fl2.food} '
+                        f'\n{f}')
+            else:
+                f1 = self.alive = False
+                return (f'{n2.name} не стала есть {mt1.food}'
+                        f'\n{f1}')
 
-        else:
-            self.alive = False
-            return f'{n2.name} не стала есть {mt1.name}'
+class Predator(Animal):
+    def __init__(self, name):
+        super().__init__(name)
+    def eat(self, food):
+        if isinstance(food, Plant):
+            if food == mt1:
+                f3 = self.fed = True
+                return (f'{n1.name} съел {mt1.food}'
+                        f'\n{f3}')
+            else:
+                f4 = self.alive = False
+                return (f'{n1.name} не стал есть {fl2.food}'
+                        f'\n{f4}')
 
 
-
-# class Predator(Animal):
-#     def eat(self, food):
-#        self.food = food
-#         if food := True:
-#             print(f'{self.name} съел {self.food}')
-#             self.fed = True
-#         else:
-#             print(f'{self.name} не стал есть {self.food}')
-#             self.alive = False
-#         return
-#
 class Flower(Plant):
-    def fl(self, edible = True):
+    def __init__(self, food):
+        super().__init__(food)
+    def set_fl(self, edible = True):
         self.edible = edible
 
 class Meat(Plant):
-    def fr(self, edible = True):
+    def set_fr(self, edible = True):
         self.edible = edible
 
 
-n1 = Animal(name='волк')
-n2 = Animal(name='черепаха')
+n1 = Animal('волк')
+n2 = Animal('черепаха')
 
-mt1 = Plant (name='овца')
-fl2 = Plant(name='одуванчик')
+
+
+mt1 = Plant('овца')
+fl2 = Plant('одуванчик')
+
 
 mn = Mammal
-
-print(n2.name)
-print(fl2.name)
-
-print(Flower.__mro__)
-print(Mammal.__mro__)
-
-print(n2.name)
-print(mn.eat(Plant(fl2.name), "одуванчик"))
+pr = Predator
 
 
-print(n1.alive)
+print(n1.name)
+print(fl2.food)
+
 print(n2.fed)
+print(n1.alive)
+
+print(mn(n2).eat(fl2))
+print(pr(n1).eat(fl2))
 
