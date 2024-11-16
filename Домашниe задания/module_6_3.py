@@ -48,22 +48,20 @@ class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
     def __init__(self, speed):
         super().__init__(speed)
-        # Animal.move.__init__(dz)
 
     def dive_in(self):
-        if self.dz < 0:
-            sp = self.speed
-            # self.dz / 2
-            self._cords[2] = self.dz * sp
-
-    # def abs(self):
+        dz = self.dz
+        self._cords[2] -= abs(dz) / 2 * self.speed      # ads() убирает минус в числовом значение
+        print(f'X: {self._cords[0]} \n'
+              f'Y: {self._cords[1]} \n'
+              f'Z: {int(self._cords[2])}')
 
 
 class PoisonousAnimal(Animal):
     _DEGREE_OF_DANGER = 8
 
 
-class Duckbill(PoisonousAnimal, Bird, AquaticAnimal):
+class Duckbill(Bird, AquaticAnimal, PoisonousAnimal):
 
     def speak(self):
         print("Click-click-click")
@@ -72,22 +70,18 @@ class Duckbill(PoisonousAnimal, Bird, AquaticAnimal):
 
 print(Duckbill.__mro__)
 
-
-
-db = Duckbill(3)
+db = Duckbill(2)
 
 print(db.live)
 print(db.beak)
-#
+
 db.speak()
 db.attack()
-#
-db.move(2, 4, -3)
+
+db.move(2, 4, 7)
 db.get_cords()
 
 db.lay_eggs()
-
-
 
 
 db.dive_in()

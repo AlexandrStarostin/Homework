@@ -1,6 +1,5 @@
 from math import pi
 
-
 class Figure:
     sides_count = 0
     def __init__(self, __color, *__sides):
@@ -20,15 +19,12 @@ class Figure:
             return False
         elif not (0 <= r <= 255 and 0 <= g <= 255 and 0 <= b <= 255):
             return False
-        return True         #по умолчанию возвращаеться True
+        return True                  #по умолчанию возвращаеться True
 
     def set_color(self, r, g, b):
         #setter
         if self.__is_valid_color(r, g, b):
             self.__color = [r, g, b]
-
-    def get_sides(self):
-        return self.__sides
 
     def __is_valid_sides(self, sides):
         if len(sides) != self.sides_count:
@@ -36,7 +32,10 @@ class Figure:
         for side in sides:
             if not (isinstance(side, int) and side > 0):
                 return False
-        return True #по умолчанию
+        return True
+
+    def get_sides(self):
+        return self.__sides
 
     def set_sides(self, *new_sides):
         if self.__is_valid_sides(new_sides):
@@ -46,17 +45,38 @@ class Figure:
         return sum(self.__sides)
 
 class Circle(Figure):
-    sides_count = 1        # прописанно здесь, а не в __инит__, чтобы он был одинаков для всех экземпляров
+    sides_count = 1                         # прописанно здесь, а не в __init__, чтобы он был виден для всех экземпляров
     def __init__(self, color, sides):
         super().__init__(color, sides)
         self.__radius = len(self) / (2 * pi)
 
     def set_sides(self, new_sides):
-        super().set_sides(new_sides)
+        super().set_sides(new_sides)        # извлечено из класса Figure и функции set_sides
         self.__radius = len(self) / (2 * pi)
 
     def get_square(self):
         return pi * self.__radius**2
+
+########################################################################
+class Triangle(Figure):
+    sides_count = 3
+    def __init__(self, color, sides):
+        super().__init__(color, sides)
+
+    def get_square(self):
+        return
+
+class Cube(Figure):
+    sides_count = 12
+    def __init__(self, color, sides):
+        super().__init__(color, sides)
+    #Сделать список из 12 одинаковых сторон (передается 1 сторона)
+
+    def get_volume(self):
+        return #объем куба
+########################################################################
+
+
 
 circle1 = Circle((200, 200, 100), 10)
 
@@ -65,14 +85,5 @@ print(circle1.get_sides())
 
 # Проверка периметра (круга), это и есть длина:
 print(len(circle1))
-#
-#
-# class Triangle(Figure):
-#
-#
-#
-# class Cube(Figure):
-
-
 
 #print(Figure()._Figure__color)
