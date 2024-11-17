@@ -7,35 +7,29 @@ class Product:
     def __str__(self):
         return f'{self.name}, {self.weight}, {self.category}'
 
-class Shop:
 
+class Shop:
     def __init__(self):
         self.__file_name = 'products.txt'
 
     def get_products(self):
-        f = open(self.__file_name)
+        f = open(self.__file_name, "r")
         fl = f.read()
         f.close()
         return fl
 
     def add(self, *products):
         all_info = self.get_products().split("\n")
-        pr = str(products)
-        prod = self.add(pr)
         file = open(self.__file_name, 'a+')
-        productt = prod.split(',')
-
         for product in products:
             for string in all_info:
-                if productt[0] == string:
-                    print(f"Продукт {productt[0]} уже есть в магазине")
+                if str(product) == string:
+                    print(f"Продукт {product} уже есть в магазине")
                     break
             else:
                 file.write(str(product) + "\n")
 
         file.close()
-
-
 
 p1 = Product('Potato', 50.4, 'Vegetables')
 p2 = Product('Spaghetti', 3.8, 'Groceries')
@@ -45,9 +39,9 @@ s = Shop()
 
 print(p1)
 
-s.add(p1, p3, p2)
-
 print(s.get_products())
+
+s.add(p1, p2, p3)
 
 
 
