@@ -20,7 +20,8 @@ class Shop:
 
     def add(self, *products):
         all_info = self.get_products().split("\n")
-        prod = str(self.add(*products))
+        pr = str(products)
+        prod = self.add(pr)
         file = open(self.__file_name, 'a+')
         productt = prod.split(',')
 
