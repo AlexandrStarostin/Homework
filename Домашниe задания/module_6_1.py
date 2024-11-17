@@ -2,7 +2,7 @@ class Animal:
     def __init__(self, name, alive = True, fed = False):
         self.name = name
         self.alive = alive     # живой
-        self.fed = fed      # накормленый
+        self.fed = fed      # накормленный
         a = self.alive
 
 
