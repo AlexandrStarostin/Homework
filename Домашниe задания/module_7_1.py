@@ -19,46 +19,36 @@ class Shop:
         return fl
 
     def add(self, *products):
-        file_name = self.__file_name
-        file_inf = Shop.get_products(self).split('\n')
-        # f_inf = self.get_products().split("\n")
-        f = open(file_name, 'a+')      # 'a+' - режим открытия файла для дополнения и чтения
-        pr = Shop().add
-        pp = pr[0]
-        for i  in file_inf:
-            if pr[0] == i:
-                print(f'Продукт {pr[0]} уже есть в магазине')
-                break
-        else:
-            f.write(str(pr) + '\n')
-        f.close()
+        all_info = self.get_products().split("\n")
+        prod = str(self.add(*products))
+        file = open(self.__file_name, 'a+')
+        productt = prod.split(',')
+
+        for product in products:
+            for string in all_info:
+                if productt[0] == string:
+                    print(f"Продукт {productt[0]} уже есть в магазине")
+                    break
+            else:
+                file.write(str(product) + "\n")
+
+        file.close()
 
 
-        # for p in products:
-        #
-        #     for name_p in file_inf:
-        #         if str(p) == name_p:
-        #             print(f'Продукт {p.name} уже есть в магазине')
-        #             break
-        #     else:
-        #         f.write(str(p)+'\n')
-        # f.close()
 
 p1 = Product('Potato', 50.4, 'Vegetables')
 p2 = Product('Spaghetti', 3.8, 'Groceries')
 p3 = Product('Carrot', 5.5, 'Vegetables')
 
-prod = Product.__init__
+s = Shop()
 
 print(p1)
 
-Shop().add(p1, p3, p2)
-print()
-print(p1.__str__())
+s.add(p1, p3, p2)
+
+print(s.get_products())
 
 
 
 
-# pri = Product().split(',')
-#
-# print(pri(p1))
+
