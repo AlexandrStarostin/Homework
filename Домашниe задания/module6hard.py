@@ -57,33 +57,61 @@ class Circle(Figure):
     def get_square(self):
         return pi * self.__radius**2
 
-########################################################################
+
 class Triangle(Figure):
     sides_count = 3
     def __init__(self, color, sides):
         super().__init__(color, sides)
+        self.sides = sides
 
     def get_square(self):
-        return
+
+        side = self.sides
+        p = int(1/2 * (self.sides * self.sides_count))
+        return int((p * (p * side) * (p * side) * (p * side))**1/2)
 
 class Cube(Figure):
     sides_count = 12
     def __init__(self, color, sides):
         super().__init__(color, sides)
-    #Сделать список из 12 одинаковых сторон (передается 1 сторона)
+        self.sides = sides
+        self.__cube_side = []
+
+    def set_sides(self, __new_sides):
+        super().set_sides()
+
+        for i in range(self.sides_count):
+            self.__cube_side.append(self.sides)
+
+    def get_sides(self):
+        return self.__cube_side
+
 
     def get_volume(self):
-        return #объем куба
-########################################################################
-
+        return self.sides**3
 
 
 circle1 = Circle((200, 200, 100), 10)
+cube1 = Cube((222, 35, 130), 6)
+triangle = Triangle((120, 66, 38), 2)
 
-circle1.set_sides(15)
+# Проверка на изменение цветов:
+circle1.set_color(55, 66, 77) # Изменится
+print(circle1.get_color())
+cube1.set_color(300, 70, 15) # Не изменится
+print(cube1.get_color())
+
+# Проверка на изменение сторон:
+cube1.set_sides(55) # Не изменится
+print(cube1.get_sides())
+circle1.set_sides(15) # Изменится
 print(circle1.get_sides())
+
 
 # Проверка периметра (круга), это и есть длина:
 print(len(circle1))
+print(circle1.get_square())
 
-#print(Figure()._Figure__color)
+# Проверка объёма (куба):
+print(cube1.get_volume())
+
