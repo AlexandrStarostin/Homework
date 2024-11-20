@@ -1,6 +1,3 @@
-from itertools import product
-
-
 class Product:
     def __init__(self, name, weight, category):
         self.name = str(name)
@@ -15,7 +12,6 @@ class Shop:
     def __init__(self):
         self.__file_name = 'products.txt'
 
-
     def get_products(self):
         f = open(self.__file_name)
         fl = f.read()
@@ -25,8 +21,6 @@ class Shop:
     def add(self, *products):
         all_inf = str(self.get_products())
         all_info = all_inf.split('\n')
-        all_info1 = str(all_info).split("' ")
-
         file = open(self.__file_name, 'a+', encoding='UTF-8')
         for prod in products:
             for i in all_info:
@@ -34,17 +28,16 @@ class Shop:
                 if prod.name in pr:
                     print(f"Продукт {str(prod.name)} уже есть в магазине")
                     break
+
             else:
                 file.write(str(prod) + '\n')
-                break
-
-
+                return
         file.close()
 
 p1 = Product('Potato',50.8,'Vegetables')
 p2 = Product('Spaghetti',3.8,'Groceries')
 p3 = Product('Carrot',5.5,'Vegetables')
-#p4 = Product('ddd', 555, 'ppp')
+
 s = Shop()
 
 print(p1, p2, p3)
