@@ -50,7 +50,6 @@ inform.set_file()
 inform.set_file1()
 inform.set_num()
 
-
 print(inform.strings)
 print(num)
 print(strings_tell)
