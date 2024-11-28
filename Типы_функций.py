@@ -5,6 +5,7 @@
 # #print(type('Привет'))       #(str)string - строка
 # #print(type(123))            #(int)integed - целое число
 # #print(type(123.1))          #(float) - число с плавающей точкой
+# #print(abs(-123))                               #(ads) убирает минус в числовом значение
 # #print(len('123'))           #(len) - количество символов в строке ( так и в списке символов)
 # #print(type(True and False)) #(bool)boolean - булевы значения(одно из двух значений верно и неверно)
 #                                                                    #and (и) or (или)
@@ -69,7 +70,17 @@
 
 # print('Словарь(тип списка)')
 # r2 = {'Anna': 9091788,'Anton': 7873436754,'Sasha': 3452132324} #(тип dict()) - (ключ(key): значение(value(ценность))) только фигурные скобки
-#                                                                #(zip()) обьединение списков в словарь (ключ: значение)
+
+# u = [6, 4, 7]
+# y = ['jh', 'de', 'ki']
+# oi = dict(zip(y, u))
+# print(oi)               #dist(zip()) объединение списков в словарь (ключ: значение)
+
+## u = [6, 4, 7]
+# y = ['jh', 'de', 'ki']
+# print(dict(zip(y, u)))
+# w = zip(y,u)
+# print(tuple(w))         #или указать другой тип, что будет общим кортежем (tuple)  в общем кортеже.
 #
 # print(r2)
 # print(type(r2))
@@ -161,3 +172,54 @@
 
 # print(Figure()._Figure__sides) - _Figure(кастыль)
 # print(Figure()._color)
+
+
+                                   #Работа с файлами
+
+#file = open(self.__file_name, 'a+', encoding='UTF-8') #при работе с рускоязычным текстом желательно прописывать encoding='UTF-8'
+#all_info = self.get_products().split("\n")  #split("\n") - удаление какого-либо знака занесенного в кавычки,
+                                                            # делая список из текста, разделяя по индексу весь текст между удаленным знаком
+
+# with open(name, encoding='UTF-8') as file: #открытие и закрытие файла происходит через оператор "with"
+#     for line in file:
+#         for char in line:
+#             print(char, end='')
+#     print(file.tell()) #- расположение курсора после перебора "for"
+
+
+
+
+                            # os — Miscellaneous operating system interfaces
+
+# import os
+#
+# print('Текущая директория:', os.getcwd()) #метод определения адреса в данный момент
+# #os.mkdir('second')                        #метод 'mkdir' создает новую рабочую директорию в этой директории(если ее нет)
+# if os.path.exists('second'):     # обращается с помощью команды 'path' к методу 'exists' (наличие директории в скобках).
+#     os.chdir('second')    # метод 'chdir' изменяет рабочую директорию если она есть - (True)
+#     os.path.abspath(file) # метод 'abspath' прописывает полный адрес до указанного места в скобках
+# else:                 #а если ее нет (False)
+#     os.mkdir('second')
+#     os.chdir('second')
+# print('Текущая директория:', os.getcwd())
+# #os.makedirs(r'third\forg') # метод 'makedirs' для создания дополнительных папок в текущей директории.
+#
+# print(os.listdir()) #метод 'listdir' для выведения списка содержимого этого рабочего пространства.
+#
+# for i in  os.walk('.'): #(".") - текущая рабочая директория. "walk" - метод прочтения информации в текущей директории.
+#     print(i)
+#
+# os.chdir(r'C:\Users\Саша\PycharmProjects\pythonProject\Домашниe задания')
+# print('Текущая директория:', os.getcwd())
+# print(os.listdir())
+# file = [f for f in  os.listdir() if os.path.isfile(f)] #шаблон для сортировки файлов
+# dict = [d for d in  os.listdir() if os.path.isdir(d)] #шаблон для сортировки директорий
+# print(file)
+# print(dict)
+#
+# os.startfile(file[17])  # 'startfile' - метод запуска файла
+# print(os.stat(file[17]))  #(stat) - метод получения информации из файла
+# print(os.stat(file[17]).st_mtime) # запрос определенной информации по файлу
+# os.system('pip install random2')#можно прописать, что будет выполняться в терминале
+#
+# Документация по модулю os: https://docs.python.org/3/library/os.html
