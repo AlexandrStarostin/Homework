@@ -222,4 +222,9 @@
 # print(os.stat(file[17]).st_mtime) # запрос определенной информации по файлу
 # os.system('pip install random2')#можно прописать, что будет выполняться в терминале
 #
+# from pprint import pprint
+# file = open(name, 'r')
+# print(file.tell())    # Метод «tell» позволяет узнать позицию курсора в данный момент в этом файле,
+# pprint(file.read())   #а метод «read» считывает полное содержимое текстового файла.
+#
 # Документация по модулю os: https://docs.python.org/3/library/os.html
