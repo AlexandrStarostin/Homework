@@ -34,10 +34,6 @@ def personal_sum(numbers):
         print(f'Cреднее арифметическое всех чисел: {s_result}')
 
 
-def calculate_average(number):
-    number = personal_sum(8)
-    print()
-
 personal_sum([8, 78,'75', 5])
 personal_sum([8, 0.7, 'yuy'])
 
