@@ -14,25 +14,26 @@ def write_words(word_count, file_name):
 
 word_c = 'Привет'
 
-
-wr_1 = write_words(10, 'example1.txt')
-wr_2 = write_words(10, 'example2.txt')
-wr_3 = write_words(20, 'example3.txt')
-wr_4 = write_words(10, 'example4.txt')
-#
-rt =threading.currentThread()
-rt.start()
-rt.join()
+write_words(10, 'example1.txt')
+write_words(10, 'example2.txt')
+write_words(20, 'example3.txt')
+write_words(10, 'example4.txt')
 
 
-thr_0 = threading.Thread(target=write_words(7, 'example5.txt'))
+
+thr_0 = threading.Thread(target=write_words(4, 'example5.txt'))
 thr_0.start()
-thr_1 = threading.Thread(target=write_words(2, 'example6.txt'))
+thr_0.join()
+thr_1 = threading.Thread(target=write_words(230, 'example6.txt'))
 thr_1.start()
-thr_2 = threading.Thread(target=write_words(40, 'example7.txt'))
+thr_1.join()
+thr_2 = threading.Thread(target=write_words(250, 'example7.txt'))
 thr_2.start()
-thr_3 = threading.Thread(target=write_words(7, 'example8.txt'))
+thr_2.join()
+thr_3 = threading.Thread(target=write_words(50, 'example8.txt'))
 thr_3.start()
+thr_3.join()
+
 print(threading.enumerate())
 
 
