@@ -17,7 +17,6 @@ class Bank:
             print(f'Пополнение: {rand}. Баланс: {self.check}')
             if self.check < 500:
                 self.lock.locked()
-                # self.lock.release()
                 continue
 
             if self.check >= 500:
