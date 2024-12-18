@@ -30,13 +30,13 @@ class Bank:
                 self.check -= rand
                 print(f"Снятие: {rand}, Баланс: {self.check}")
                 continue
-                # self.lock.release()
+
             if self.check < rand:
                 self.lock.acquire()
                 time.sleep(0.001)
                 print(f"Запрос отклонён, недостаточно средств.")
                 break
-        self.lock.release()
+
         print()
         print(f"Итоговый баланс: {self.check}")
 
@@ -47,7 +47,7 @@ th1 = threading.Thread(target=Bank.deposit, args=(bk,))
 th2 = threading.Thread(target=Bank.take, args=(bk,))
 
 th1.start()
-th1.join()
+th1.join() # который не даст выполнять основную программу пока не завершится поток
 
 th2.start()
 th2.join()
