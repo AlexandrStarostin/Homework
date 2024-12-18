@@ -15,21 +15,16 @@ class Bank:
             rand = random.randint(50, 500)
             self.check += rand
             print(f'Пополнение: {rand}. Баланс: {self.check}')
-            if self.check < 500:
-                self.lock.locked()
-                continue
-
-            if self.check >= 500:
-                self.lock.locked()
+            if self.check >= 500 and self.lock.locked(): # и (проверка) заблокированы ли другие потоки
+                self.lock.release()               # Снятие блокировки других потоков
                 break
-        self.lock.release() # Снятие блокировки других потоков после выполнения этого потока
 
     def take(self):
-        self.lock.acquire()
         for i in range(100):
             time.sleep(0.001)
             rand = random.randint(50, 500)
-            print(f"Запрос на {rand}")
+            print()
+            print(f"Запрос на снятие: {rand}")
             if self.check >= rand:
                 time.sleep(0.001)
                 self.check -= rand
@@ -37,10 +32,12 @@ class Bank:
                 continue
                 # self.lock.release()
             if self.check < rand:
+                self.lock.acquire()
                 time.sleep(0.001)
                 print(f"Запрос отклонён, недостаточно средств.")
                 break
         self.lock.release()
+        print()
         print(f"Итоговый баланс: {self.check}")
 
 bk = Bank()
