@@ -51,6 +51,7 @@ class Cafe:
                         table.guest.start()
 
 
+
 # Создание столов
 tables = [Table(number) for number in range(1, 6)]
 # Имена гостей
