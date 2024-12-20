@@ -52,7 +52,6 @@ class Cafe:
 
 
 
-
 # Создание столов
 tables = [Table(number) for number in range(1, 6)]
 # Имена гостей
