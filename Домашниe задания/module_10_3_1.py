@@ -28,7 +28,6 @@ class Bank:
                     self.lock.release()
 
 
-
     def take(self):
         self.lock.acquire()
         for i in range(100):
