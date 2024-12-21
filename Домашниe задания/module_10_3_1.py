@@ -27,6 +27,7 @@ class Bank:
                 if self.lock.locked():
                     self.lock.release()
 
+
     def take(self):
         self.lock.acquire()
         for i in range(100):
