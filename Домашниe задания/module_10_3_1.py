@@ -9,35 +9,47 @@ class Bank:
         self.lock = threading.Lock()
 
     def deposit(self):
-        self.lock.acquire() # Блокировка других потоков для стабильной работы этого потока
+        # self.lock.acquire() # Блокировка других потоков для стабильной работы этого потока
         for i in range(100):
-            time.sleep(0.001)
-            rand = random.randint(50, 500)
-            self.check += rand
-            print(f'Пополнение: {rand}. Баланс: {self.check}')
+
             if self.check >= 500 and self.lock.locked(): # и (проверка) заблокированы ли другие потоки
                 self.lock.release()               # Снятие блокировки других потоков
+
+            else:
+                # self.lock.acquire()
+                time.sleep(0.001)
+                rand = random.randint(50, 500)
+                self.check += rand
+
+                print(self.lock.locked())
+                print(f'Пополнение: {rand}. Баланс: {self.check}')
+                print(self.lock.locked())
+                if self.lock.locked():
+                    self.lock.release()
+
 
 
     def take(self):
         self.lock.acquire()
         for i in range(100):
+            if not self.lock.locked():
+                self.lock.acquire()
             time.sleep(0.001)
             rand = random.randint(50, 500)
             print()
             print(f"Запрос на снятие: {rand}")
+            print(self.lock.locked())
+
             if self.check >= rand:
                 time.sleep(0.001)
                 self.check -= rand
                 print(f"Снятие: {rand}, Баланс: {self.check}")
-                # self.lock.release()
 
-
-            if self.check < rand:
-                self.lock.acquire()
+            else:
                 time.sleep(0.001)
                 print(f"Запрос отклонён, недостаточно средств.")
-                # self.lock.release()
+                if self.lock.locked():
+                    self.lock.release()
 
 
         print()
@@ -50,7 +62,6 @@ th1 = threading.Thread(target=Bank.deposit, args=(bk,))
 th2 = threading.Thread(target=Bank.take, args=(bk,))
 
 th1.start()
-
 th2.start()
 
 th1.join() # который не даст выполнять основную программу пока не завершится поток
