@@ -4,7 +4,7 @@ from pprint import pprint
 
 class Func:
     def __init__(self, name):
-        self.it = 4            # класс объекта
+        self.it = 4            
         sum = self.it + name
         print(sum)
 
