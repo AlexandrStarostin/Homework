@@ -48,7 +48,9 @@ th1 = threading.Thread(target=Bank.deposit, args=(bk,))
 th2 = threading.Thread(target=Bank.take, args=(bk,))
 
 th1.start()
-th1.join()  # который не даст выполнять основную программу пока не завершится поток
 
 th2.start()
+
+th1.join()  # который не даст выполнять основную программу пока не завершится поток
+
 th2.join()
